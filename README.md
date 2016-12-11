@@ -1,5 +1,5 @@
-# drupal7-docker
-Vanilla Drupal 7 development environment
+# drupal8-docker
+Vanilla Drupal 8 development environment
 
 For more information, see:
-https://github.com/xandermar/drupal7-docker/wiki
+https://github.com/xandermar/drupal8-docker/wiki
