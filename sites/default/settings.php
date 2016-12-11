@@ -1,17 +1,21 @@
 <?php
 
 $databases = array();
-$config_directories = array();
-$settings['hash_salt'] = '0F851cchzcq3_ZTrvQPJGvJ6iqEhCN3_LxalwYaqhbV0VZlqMOcGyMrpslWFe7x6tMp5rQRD2Q';
-$settings['update_free_access'] = FALSE;
-$settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
-$settings['file_scan_ignore_directories'] = [
-  'node_modules',
-  'bower_components',
-];
+$update_free_access = FALSE;
+$drupal_hash_salt = '';
+
+# $base_url = 'http://www.example.com';  // NO trailing slash!
+
+ini_set('session.gc_probability', 1);
+ini_set('session.gc_divisor', 100);
+ini_set('session.gc_maxlifetime', 200000);
+ini_set('session.cookie_lifetime', 2000000);
+$conf['404_fast_paths_exclude'] = '/\/(?:styles)|(?:system\/files)\//';
+$conf['404_fast_paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
+$conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
 
 $databases['default']['default'] = array (
-  'database' => 'drupal8',
+  'database' => 'drupal',
   'username' => 'admin',
   'password' => 'admin',
   'prefix' => '',
@@ -20,5 +24,6 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
+$settings['hash_salt'] = 'y0Z8Fdfyy5TOEt58yttLNEgpcrSzGyYDEpnWcDDWSZB2gw2XDt1wXhWv-t5uuliuFx_vkjmVdw';
 $settings['install_profile'] = 'standard';
-$config_directories['sync'] = 'sites/default/files/config__Ls6QHZlJDKq51fZSfIoWaORQNRPEWRYHSwWya03Q_kQ83NiKjUE8RmsfOgkotkn5N9gyRQZaw/sync';
+$config_directories['sync'] = 'sites/default/files/config_Pi2myraFOq8JNBYUmJ_OmEdOxJGlYkc9fubIMgYKdjxAV6t-0ORTD1SgnlaWieto6YNI7mOdvg/sync';
